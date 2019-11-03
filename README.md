@@ -12,4 +12,10 @@ Crisees was the subject of a publication at [ECIR 2012](https://dblp1.uni-trier.
 My Honours dissertation on the subject is available on my personal website. [You can find the complete PDF that was submitted to the examiners here.](http://bit.ly/maxwell-honours-pdf)
 
 ## Project Status
-This project is archived; I am no longer actively maintaining this software. The source code is provided here as-is, and has been put here to show the world *that I can code.*
+This project is archived; I am no longer actively maintaining this software. The source code is provided here as-is, and has been put here to show the world *that I can code.* Note that I didn't know much about environments back then; I don't have a `requirements.txt` file to hand. From my old development VM, I had the following installed.
+
+* Python 2.7.2
+* Django 1.3
+* Whoosh 1.8.3
+
+Old stuff; again, this is here for achival purposes.
