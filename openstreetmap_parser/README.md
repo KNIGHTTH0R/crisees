@@ -1,5 +1,6 @@
 # OpenStreetMap Parser and Indexer
 **Author: David Maxwell**
+
 **Date: 2011-08-24**
 
 This branch of Crisees has been developed to allow parsing of
