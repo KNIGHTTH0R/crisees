@@ -1,0 +1,35 @@
+{% extends "modal/base.html" %}
+
+{% block title %}Sources{% endblock %}
+{% block current %}sources{% endblock %}
+
+{% block body %}
+This box allows you to add which social media streams are to be used for
+gathering information about this particular event. The streams below can
+be turned either on or off. If you decide to disable a particular social
+media stream for this event, any previously collected information will
+remain; but no new information will be gathered from it. Disabling all
+sources produces the same effect as stopping the event entirely.
+
+<div class="queries_container">
+	
+	<div class="queries_left" style="width: 100%;">
+	
+		<ul id="sources-list-{{ event_id }}">
+			
+			{% for source in sources %}
+			<li id="sources-list-{{ source.id }}-{{ event_id }}" class="{% if source.active %}green{% else %}red{% endif %}">
+				<img class="draggable" src="{{ static }}images/sources/{{ source.id }}_20.png" alt="{{ source.name }}" />
+				<span>{{ source.name }}</span>
+				
+				<a class="icon" id="sources-{{ source.id }}-{{ event_id }}" href="!toggle-source-active"><img src="{{ static }}images/icons/{% if source.active %}play{% else %}stop{% endif %}.png" alt="Enable or disable this source." id="sources-image-{{ source.id }}-{{ event_id }}" /></a>
+			</li>
+			{% endfor %}
+			
+		</ul>
+	
+	</div>
+	
+</div>
+
+{% endblock %}

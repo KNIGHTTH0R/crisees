@@ -1,0 +1,45 @@
+{% load static %}
+{% get_static_prefix as static %}
+
+<input type="hidden" id="static-prefix" value="{{ static }}" />
+
+<script type="text/javascript">
+	initialise_add_map();
+</script>
+
+<div class="add_map_container">
+	<div id="add-map"></div>
+	<div id="add-map-top"></div>
+</div>
+
+<div class="add_container indent">
+
+	<h1>Add a New Event</h1>
+	
+	<div class="right">
+		<div class="row" id="map-add-row-name">
+			<span class="title">Name</span>
+			<input type="text" class="value" value="Enter a name" id="map-add-box-name" />
+		</div>
+		
+		<div class="row">
+			<span class="title">Longitude</span>
+			<span class="value" id="map-add-box-longitude"></span>
+		</div>
+		
+		<div class="row">
+			<span class="title">Latitude</span>
+			<span class="value" id="map-add-box-latitude"></span>
+		</div>
+		
+		<div class="row">
+			<span class="title" title="The distance in kilometres from the centre of the event">Distance (km)</span>
+			<input type="text" class="value" value="5" id="map-add-box-distance" />
+		</div>
+		
+		<div class="row" style="margin-bottom: 0; background: none;">
+			<input type="button" value="Create Event" id="map-add-box-create" />
+		</div>
+	</div>
+	
+</div>

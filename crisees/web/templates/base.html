@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<!--
+
+	Crisees (Prototype)
+	Created by David Maxwell, {% now "Y" %}
+	
+	Page Served at {% now "l, F j Y, H:i:s" %}
+
+-->
+
+{% load static %}
+{% get_static_prefix as static %}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+{% block headers %}{% endblock %}
+		<title>Crisees</title>
+	</head>
+	
+	<body>
+		
+		<div id="modalback" class="modalback"><!-- --></div>
+		<div id="add_modalback" class="modalback" style="z-index: 1002;"><!-- --></div>
+		<div id="add_modalmessage">
+			Creating event...
+		</div>
+		
+		<div id="content">
+		
+			<div id="header">
+{% include "header.html" %}
+			</div>
+			
+			<div id="tabs">
+{% block tabs %}{% endblock %}
+			</div>
+			
+		</div>
+		
+	</body>
+
+</html>

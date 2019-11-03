@@ -1,0 +1,52 @@
+{% extends "modal/base.html" %}
+
+{% block title %}Event Query Terms{% endblock %}
+{% block current %}queries{% endblock %}
+
+{% block body %}
+This box allows you to add, modify and remove query terms currently
+being used to collect data from the active social media streams regarding
+this particular event.
+
+<div class="queries_container">
+	
+	<div class="" style="clear: both; margin-bottom: 10px;">
+		Show at-a-glance query term list in the main view? <a href="!toggle-query-list" class="toggle" id="queries-list-toggle-show-{{ event_id }}"><strong>Click to show</strong></a>
+	</div>
+	
+	<div class="queries_left">
+		
+		<ul id="queries-list-{{ event_id }}">
+			
+			{% for query in queries.terms %}
+			
+			{% include "modal/helpers/query_term.html" %}
+			
+			{% endfor %}
+			
+		</ul>
+		
+		<ul>
+			
+			<li id="queries-list-add-{{ event_id }}">
+				<img class="draggable" src="{{ static }}images/icons/paper_find.png" alt="Add a new query" />
+				<input type="text" style="font-style: italic;" id="queries-term-add-{{ event_id }}" value="Enter a new query here" />
+			</li>
+			
+		</ul>
+		
+	</div>
+
+	<div class="queries_right">
+		<span id="queries-count-{{ event_id }}">{{ queries.count }}</span>
+		query term(s)
+		
+		<div style="text-align: right;">
+			<span id="queries-active-count-{{ event_id }}">{{ queries.active_count }}</span>
+			active
+		</div>
+	</div>
+	
+</div>
+
+{% endblock %}

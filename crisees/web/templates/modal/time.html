@@ -1,0 +1,57 @@
+{% extends "modal/base.html" %}
+
+{% block title %}Time Settings{% endblock %}
+{% block current %}time{% endblock %}
+
+{% block body %}
+This box allows you to adjust which mode the Crisees frontend runs in -
+either real-time or historic. To switch between modes, simply adjust the
+slider for the mode you wish to switch to; you will notice that the top
+of the box then turns green, indicating the currently selected mode.
+Note that switching to historic mode whilst the event is sourcing does
+not stop the system from gathering new information.
+
+<div class="queries_container">
+	
+	<div id="time-real-{{ event_id }}" class="time_box">
+		<h3>Real-Time</h3>
+		
+		Real-time mode queries the Crisees API in intervals to retrieve
+		the latest information from the currently active social media
+		streams for this event. Use the slider below to adjust the
+		refresh interval. Acceptable times range from 5 seconds to 1
+		minute between refreshes.
+		
+		<div class="slider_realtime_container">
+			
+			<div class="slider_realtime" id="time-real-slider-{{ event_id }}"><!-- --></div>
+			<div class="slider_realtime_value" id="time-real-slider-value-{{ event_id }}"><!-- --></div>
+		
+		</div>
+		
+	</div>
+	
+	<div id="time-historic-{{ event_id }}" class="time_box" style="padding-bottom: 15px;">
+		<h3>Historic</h3>
+		
+		Historic mode allows you to wind back the clock and query the
+		Crisees API for previously indexed information between the two
+		points in time that you can select using the slider below. The
+		information from this period is then loaded into the Crisees
+		interface.
+		
+		<div class="slider_historic_container">
+			
+			<div class="histogram" id="time-historic-histogram-{{ event_id }}"><!-- --></div>
+			
+			<div class="slider_historic" id="time-historic-slider-{{ event_id }}"></div>
+			
+		</div>
+		
+		<div class="slider_historic_text" id="time-historic-slider-text-{{ event_id }}"><!-- --></div>
+		
+	</div>
+	
+</div>
+
+{% endblock %}

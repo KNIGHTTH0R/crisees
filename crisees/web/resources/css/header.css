@@ -1,0 +1,27 @@
+div#content div#header {
+	height: 130px;
+	margin-bottom: 0px;
+}
+
+	div#content div#header img {
+		padding-top: 19px;
+		margin-left: -11px;
+	}
+	
+	/*
+	div#content div#header span {
+		display: block;
+		float: right;
+		padding-top: 43px;
+		line-height: 22px;
+		text-align: right;
+		color: #BEC2E0;
+		color: transparent;
+	}*/
+	
+	div#content div#header img.uni {
+		float: right;
+		position: relative;
+		bottom: 7px;
+		left: 39px;
+	}

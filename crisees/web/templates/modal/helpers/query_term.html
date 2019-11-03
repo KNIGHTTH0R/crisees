@@ -1,0 +1,12 @@
+{% load static %}
+{% get_static_prefix as static %}
+
+<li id="queries-list-{{ query.id }}-{{ event_id }}" class="{% if query.active %}green{% else %}red{% endif %}">
+	<img class="draggable" src="{{ static }}images/icons/paper_find.png" alt="Drag Me!" />
+	<input type="text" id="queries-term-{{ query.id }}-{{ event_id }}" value="{{ query.query }}" />
+	
+	<a class="icon" id="queries-delete-{{ query.id }}-{{ event_id }}" href="!delete-query"><img src="{{ static }}images/icons/cross.png" alt="Delete this term." /></a>
+	<a class="icon" id="queries-active-{{ query.id }}-{{ event_id }}" href="!toggle-query-active"><img src="{{ static }}images/icons/{% if query.active %}play{% else %}stop{% endif %}.png" alt="Enable or disable this term." id="queries-active-image-{{ query.id }}-{{ event_id }}" /></a>
+	
+	<a href="!toggle-query-operator" id="queries-operator-not-{{ query.id }}-{{ event_id }}" class="operator{% if query.logical_not %} selected{% endif %}">NOT</a><a href="!toggle-query-operator" id="queries-operator-or-{{ query.id }}-{{ event_id }}" class="operator{% if query.operator == 'OR' %} selected{% endif %}">OR</a><a href="!toggle-query-operator" id="queries-operator-and-{{ query.id }}-{{ event_id }}" class="operator{% if query.operator == 'AND' %} selected{% endif %}">AND</a>
+</li>

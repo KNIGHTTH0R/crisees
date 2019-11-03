@@ -1,0 +1,91 @@
+{% load static %}
+{% get_static_prefix as static %}
+
+<input type="hidden" id="static-prefix" value="{{ static }}" />
+<input type="hidden" id="event-name-{{ event.id }}" value="{{ treated_name }}" />
+<input type="hidden" id="event-longitude-{{ event.id }}" value="{{ event.longitude }}" />
+<input type="hidden" id="event-latitude-{{ event.id }}" value="{{ event.latitude }}" />
+<input type="hidden" id="event-distance-{{ event.id }}" value="{{ event.distance }}" />
+<input type="hidden" id="event-name-active-{{ event.id }}" value="{% if event.active %}true{% endif %}" />
+<input type="hidden" id="event-created-{{ event.id }}" value="{{ event.created }}" />
+
+<script type="text/javascript">
+	initialise_map({{ event.id }});
+	initialise_stream({{ event.id }});
+</script>
+
+<div class="top_panel">
+	
+	<ul>
+		<li><a id="active-anchor-{{ event.id }}" title="Toggle the state of the event." class="{% if event.active %}green{% else %}red{% endif %}" href="!toggle-anchor"><img id="active-image-{{ event.id }}" src="{{ static }}images/icons/{% if event.active %}play{% else %}stop{% endif %}.png" alt="Icon" /><span id="active-text-{{ event.id }}">{% if event.active %}Sourcing{% else %}Not Sourcing{% endif %}</span></a></li><li><a id="queries-anchor-{{ event.id }}" href="!queries"><img src="{{ static }}images/icons/tick.png" alt="Icon" />Queries</a></li><li><a id="sources-anchor-{{ event.id }}" href="!sources"><img src="{{ static }}images/icons/globe_download.png" alt="Globe" />Sources</a></li><li><a id="time-anchor-{{ event.id }}" href="!time"><img src="{{ static }}images/icons/clock.png" alt="Clock" />Time Settings</a></li>
+	</ul>
+	
+	<span class="right">
+		<img id="api-status-image" alt="Communicating with Crisees API" src="{{ static }}images/icons/data_ok.png" />
+		<span id="api-status-text">API Available</span>
+	</span>
+	
+	<div id="queries-small-list-{{ event.id }}" class="query_list">
+		<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+		
+		<div class="viewport">
+			<div class="overview">
+				<ul id="query-list-ul-{{ event.id }}"><!-- --></ul>
+			</div>
+		</div>
+	</div>
+	
+	<div id="modal-{{ event.id }}" class="modal indent"><!-- --></div>
+	
+</div>
+
+<div class="panel_container">
+	
+	<div class="live_panel">
+		
+		<div class="live_indent">
+			<h3 id="live-stream-header-{{ event.id }}"><em>Live</em> Event Stream</h3>
+			
+			<div class="search">
+				<input type="text" id="live-stream-search-field-{{ event.id }}" class="stream-search" value="Enter a search query" />
+				
+				<div class="button light" title="Click here to filter only messages with a negative sentiment."><a id="live-stream-search-negative-{{ event.id }}" href="!search-stream-sentiment"><img src="{{ static }}images/icons/negative.png" alt="Negative" /></a></div>
+				<div class="button light" title="Click here to filter only messages with a positive sentiment."><a id="live-stream-search-positive-{{ event.id }}" href="!search-stream-sentiment"><img src="{{ static }}images/icons/positive.png" alt="Positive" /></a></div>
+				<div class="button" title="Click here to reset the stream."><a id="live-stream-search-reset-{{ event.id }}" href="!reset-stream"><img src="{{ static }}images/icons/refresh.png" alt="Reset" /></a></div>
+				<div class="button" title="Click here to search the stream with the specified query terms."><a id="live-stream-search-search-{{ event.id }}" href="!search-stream"><img src="{{ static }}images/icons/search.png" alt="Search" /></a></div>
+			</div>
+			
+			<div class="live_scrollable">
+				<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+				
+				<div class="viewport">
+					<div class="gradient top"></div>
+					<div class="gradient bottom"></div>
+					<div class="overview" id="live-stream-{{ event.id }}">
+						
+						<ul id="live-stream-list-{{ event.id }}"><!-- --></ul>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+	<div class="map_panel" id="map-{{ event.id }}"><div class="top"></div></div>
+
+	<div class="media_panel">
+		
+		<div class="media_scrollable">
+			<div class="viewport">
+				<div class="overview" id="live-media-{{ event.id }}">
+					<ul id="live-media-list-{{ event.id }}"><!-- --></ul>
+				</div>
+			</div>
+			
+			<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+		</div>
+		
+	</div>
+	
+</div>

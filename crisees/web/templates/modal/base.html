@@ -1,0 +1,19 @@
+{% load static %}
+{% get_static_prefix as static %}
+
+<input type="hidden" id="modal-current-{{ event_id }}" value="{% block current %}{% endblock %}" />
+
+<hr />
+<h2>{% block title %}{% endblock %}</h2>
+
+<div class="modal_content">
+	
+	<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+	
+	<div class="viewport">
+		<div class="overview">
+		{% block body %}{% endblock %}
+		</div>
+	</div>
+	
+</div>

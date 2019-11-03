@@ -1,0 +1,16 @@
+div#tabs div.container div.about_container {
+	overflow: auto;
+}
+
+	div#tabs div.container div.about_left {
+		float: left;
+		width: 656px;
+		padding-right: 10px;
+	}
+
+	div#tabs div.container div.about_right {
+		float: right;
+		width: 300px;
+		text-align: center;
+		line-height: 40px;
+	}
